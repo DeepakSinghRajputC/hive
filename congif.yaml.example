@@ -1,0 +1,55 @@
+# Aden Hive Configuration Template
+# Copy this file to config.yaml and customize for your environment
+# cp config.yaml.example config.yaml
+
+# Application settings
+app:
+  name: "Aden Hive"
+  environment: "development"  # development, staging, production
+  log_level: "info"          # debug, info, warn, error
+
+# Server configuration
+server:
+  frontend:
+    port: 3000
+  backend:
+    port: 8000
+    host: "localhost"
+
+# TimescaleDB (PostgreSQL with time-series extensions)
+timescaledb:
+  url: "postgresql://user:password@localhost:5433/hive"
+  port: 5433
+
+# MongoDB configuration
+mongodb:
+  url: "mongodb://localhost:27017"
+  database: "hive"
+  erp_database: "hive_erp"
+  port: 27017
+
+# Redis configuration
+redis:
+  url: "redis://localhost:6379"
+  port: 6379
+
+# Authentication settings
+auth:
+  jwt_secret: "your-super-secret-jwt-key-change-this-in-production"
+  jwt_expires_in: "24h"
+  passphrase: "your-encryption-passphrase-change-this-in-production"
+
+# NPM token for private packages (leave empty if not needed)
+npm:
+  token: ""
+
+# CORS configuration
+cors:
+  origin: "http://localhost:3000"
+
+# Feature flags
+features:
+  registration: true      # Allow user registration
+  rate_limiting: true     # Enable rate limiting
+  request_logging: true   # Log HTTP requests
+  mcp_server: true       # Enable MCP server functionality
